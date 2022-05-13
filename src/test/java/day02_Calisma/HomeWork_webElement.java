@@ -13,11 +13,10 @@ public class HomeWork_webElement {
     /*
     1. Bir class oluşturun : AmazonSearchTest
     2. Main method oluşturun ve aşağıdaki görevi tamamlayın.
-    a.google web sayfasına gidin. https://www. amazon.com/
+    a. web sayfasına gidin. https://www. amazon.com/
     b. Search(ara) “city bike”
     c. Amazon'da görüntülenen ilgili sonuçların sayısını yazdırın
-    d. “Shopping” e tıklayın.
-    e. Sonra karşınıza çıkan ilk sonucun resmine tıklayın.
+    d. Sonra karşınıza çıkan ilk sonucun resmine tıklayın.
      */
 
     public static void main(String[] args) {
@@ -34,9 +33,24 @@ public class HomeWork_webElement {
         aramaKutusu.sendKeys("city bike"+ Keys.ENTER);
 
         // c. Amazon'da görüntülenen ilgili sonuçların sayısını yazdırın
+        List<WebElement> ilgiliSonuc= driver.findElements(By.className("sg-col-inner"));
+        WebElement ilgiliSonucElementi=ilgiliSonuc.get(0);
+        System.out.println(ilgiliSonucElementi.getText());
 
+        // d. Sonra karşınıza çıkan ilk sonucun resmine tıklayın.
+        List<WebElement> ilkSonuc=driver.findElements(By.className("s-image"));
+        WebElement ilkSonucElementi=ilkSonuc.get(0);
+        ilkSonucElementi.click();
 
+         /*
+         Xpath ile Cozumu
+        WebElement ilgiliSonucSayisi= driver.findElement(By.xpath("(//div[@class='sg-col-inner'])[1]"));
+        System.out.println(ilgiliSonucSayisi.getText());
 
+        WebElement ilkResim= driver.findElement(By.xpath("(//img[@class='s-image'])[1]"));
+        ilkResim.click();
+
+          */
 
 
     }
